@@ -1,14 +1,14 @@
 package com.zed.DocumentSharing.Model;
-
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 @Document(collection = "users")
 @Data
 @Builder
@@ -18,7 +18,8 @@ public class User {
     @Id
     @Field("_id")
     private String Id;
-    
+
+    @Indexed(unique = true)
     private String email;
     private String name;
     private String phone;
